@@ -26,6 +26,7 @@ export function dropItIn(arr, containerDiv){
     for (let index = 0; index < arr.length; index++) {
         containerDiv.appendChild(arr[index]);
     };
+    return containerDiv;
 }
 
 // home menu contact us
@@ -41,8 +42,7 @@ function _headerBar(){
     const home = document.createElement('li');
     const menu = document.createElement('li');
     const contact = document.createElement('li');
-    [home,menu,contact].forEach((i)=>
-    {i.classList.add('button')});
+    [home,menu,contact].forEach((i)=>i.classList.add('button'));
     home.textContent = 'home';
     menu.textContent = 'menu';
     contact.textContent = 'contact';

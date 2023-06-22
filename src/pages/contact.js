@@ -1,6 +1,9 @@
 import { div,img,dropItIn } from "..";
 
 function _createContactForm() {
+    const formName = document.createElement('h3');
+    formName.textContent = 'Message Us';
+
     const form = document.createElement('form');
     form.id = 'contact-form';
   
@@ -30,7 +33,8 @@ function _createContactForm() {
     const submitButton = document.createElement('button');
     submitButton.type = 'submit';
     submitButton.textContent = 'Send';
-  
+    
+    
     form.appendChild(nameLabel);
     form.appendChild(nameInput);
     form.appendChild(emailLabel);
@@ -39,7 +43,7 @@ function _createContactForm() {
     form.appendChild(messageTextarea);
     form.appendChild(submitButton);
   
-    return form;
+    return dropItIn([formName,form], div('messageUs'));
   }
 
 
@@ -68,61 +72,39 @@ export function renderContact(){
 
 
 
-    return [contactForm, contactInfo, map];
+    return [contactInfo, contactForm];
 };
 
 
 function _createContactInfo() {
   const container = div('contactInfo');
 
-  const phoneElement = document.createElement('h2');
-  const hoursElement = document.createElement('h2');
-  const locationElement = document.createElement('h2');
-  
-  // Update contact information
+  const phoneTitle = document.createElement('h2');
+  const hoursTitle = document.createElement('h2');
+  const locationTitle = document.createElement('h2');
+
+  phoneTitle.textContent = 'Phone Number:';
+  hoursTitle.textContent = 'Hours:';
+  locationTitle.textContent = 'Location:';
+
+  const phoneElement = document.createElement('h3');
+  const hoursElement = document.createElement('h3');
+  const locationElement = document.createElement('h3');
+
+    // Update contact information
   phoneElement.textContent = '123-456-7890';
-  hoursElement.textContent = '9:00 AM - 5:00 PM';
+  hoursElement.textContent = 'Mon - Fri 9:00 AM - 5:00 PM';
   locationElement.textContent = '123 Main St, Narnia';
 
-  dropItIn([phoneElement, hoursElement, locationElement], container)
+  
+  const phone = dropItIn([phoneTitle,phoneElement], div('info'));
+  const hours = dropItIn([hoursTitle,hoursElement], div('info'));
+  const location = dropItIn([locationTitle,locationElement], div('info'));
+  
+
+
+  dropItIn([phone, hours, location], container);
   
   return container;
   
 }
-
-function _createMap(){
-  // const mapElement = document.getElementById('map');
-}
-
-
-// Initialize and display the map
-function initMap() {
-  // Replace with your map API key
-  const apiKey = 'YOUR_MAP_API_KEY';
-
-  // Replace with the latitude and longitude of your location
-  const latitude = 123.456;
-  const longitude = 78.901;
-
-  const map = new google.maps.Map(mapElement, {
-    center: { lat: latitude, lng: longitude },
-    zoom: 15
-  });
-
-  const marker = new google.maps.Marker({
-    position: { lat: latitude, lng: longitude },
-    map: map,
-    title: 'Narnia Cafe'
-  });
-}
-
-// Load the Google Maps API asynchronously
-function loadScript() {
-  const script = document.createElement('script');
-  script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap`;
-  script.defer = true;
-  script.async = true;
-  document.body.appendChild(script);
-}
-
-loadScript();
