@@ -4,6 +4,7 @@ import { landingPage } from './pages/landingPage';
 import { renderMenuItems } from './pages/menu';
 import { renderContact } from './pages/contact';
 
+import './pages/styles.css';
 import gitHub from './images/github-mark-white.svg';
 
 'use strict';
