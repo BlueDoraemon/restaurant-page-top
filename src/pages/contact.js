@@ -1,3 +1,4 @@
+import { div,img,dropItIn } from "..";
 
 function _createContactForm() {
     const form = document.createElement('form');
@@ -41,37 +42,58 @@ function _createContactForm() {
     return form;
   }
 
-  const contactForm = _createContactForm();
+
+export function renderContact(){
+
+    const contactForm = _createContactForm();
+    const contactInfo = _createContactInfo();
+    const map = ''; //tag
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+    
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+    
+      // Perform form validation and submission logic here // tag
+      // For simplicity, let's just log the form data to the console
+      console.log('Name:', name);
+      console.log('Email:', email);
+      console.log('Message:', message);
+    
+      // Reset the form fields
+      contactForm.reset();
+    });
 
 
-//main.appendChild(contactForm);
 
-contactForm.addEventListener('submit', (e) => {
-  e.preventDefault();
+    return [contactForm, contactInfo, map];
+};
 
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const message = document.getElementById('message').value;
 
-  // Perform form validation and submission logic here
-  // For simplicity, let's just log the form data to the console
-  console.log('Name:', name);
-  console.log('Email:', email);
-  console.log('Message:', message);
+function _createContactInfo() {
+  const container = div('contactInfo');
 
-  // Reset the form fields
-  contactForm.reset();
-});
+  const phoneElement = document.createElement('h2');
+  const hoursElement = document.createElement('h2');
+  const locationElement = document.createElement('h2');
+  
+  // Update contact information
+  phoneElement.textContent = '123-456-7890';
+  hoursElement.textContent = '9:00 AM - 5:00 PM';
+  locationElement.textContent = '123 Main St, Narnia';
 
-const phoneElement = document.getElementById('phone');
-const hoursElement = document.getElementById('hours');
-const locationElement = document.getElementById('location');
-const mapElement = document.getElementById('map');
+  dropItIn([phoneElement, hoursElement, locationElement], container)
+  
+  return container;
+  
+}
 
-// Update contact information
-phoneElement.textContent = '123-456-7890';
-hoursElement.textContent = '9:00 AM - 5:00 PM';
-locationElement.textContent = '123 Main St, Narnia';
+function _createMap(){
+  // const mapElement = document.getElementById('map');
+}
+
 
 // Initialize and display the map
 function initMap() {

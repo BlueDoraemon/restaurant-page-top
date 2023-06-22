@@ -2,6 +2,7 @@
 import newImage from './images/rezha-ramadhan-sV8M_Lkg60Y-unsplash.jpg';
 import { landingPage } from './pages/landingPage';
 import { renderMenuItems } from './pages/menu';
+import { renderContact } from './pages/contact';
 
 import gitHub from './images/github-mark-white.svg';
 
@@ -56,7 +57,7 @@ function _headerBar(){
     });
     contact.addEventListener('click', ()=>{
         content.textContent = '';
-        //dropItIn(landingPage(), content);
+        dropItIn(renderContact(), content);
     });
     dropItIn([home,menu,contact],headerList);
     return headerList;
