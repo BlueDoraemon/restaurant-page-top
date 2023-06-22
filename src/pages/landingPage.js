@@ -4,7 +4,6 @@ export function landingPage(){
     const heading = document.createElement('h1');
     heading.textContent = 'The Lanternpost Café';
 
-    //Photo by <a href="https://unsplash.com/@rmdhnrexha?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Rezha Ramadhan</a> on <a href="https://unsplash.com/photos/sV8M_Lkg60Y?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   
     // Photo by <a href="https://unsplash.com/@tomasjasovsky?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tomas Jasovsky</a> on <a href="https://unsplash.com/s/photos/lanternpost-cafe?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
       

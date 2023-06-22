@@ -65,7 +65,7 @@ function _headerBar(){
 }
 
 function _footer(){
-    const text = div('footer');
+    const text = div('bot');
     text.textContent = 'Created by Lx. Li 2023';
 
     const link  = document.createElement('a');
@@ -73,16 +73,26 @@ function _footer(){
     link.appendChild(img(gitHub,'gitHub'));
 
     text.appendChild(link);
+    
+    
+    //Photo by <a href="https://unsplash.com/@rmdhnrexha?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Rezha Ramadhan</a> on <a href="https://unsplash.com/photos/sV8M_Lkg60Y?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
     //Created by Lx. Li  <a href = 'https://github.com/BlueDoraemon/tic-tac-toe'><img src="images/github-mark.svg"></a> 
     return [text];
 }
 
-const content = document.querySelector('#content');
-const body = document.querySelector('body');
-const footer = document.querySelector('footer');
-const title = document.querySelector('title');
-
-body.insertBefore(_headerBar(), content);
-dropItIn(landingPage(), content);
-dropItIn(_footer(),body);
+//IIFE
+(function(){
+    const content = document.querySelector('#content');
+    const body = document.querySelector('body');
+    const footer = document.querySelector('footer');
+    const title = document.querySelector('title');
+    
+    body.appendChild(dropItIn([img(newImage,'imageBack')],div('background')));
+    
+    
+    body.insertBefore(_headerBar(), content);
+    dropItIn(landingPage(), content);
+    dropItIn(_footer(),body);
+})();
 
