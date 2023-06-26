@@ -1,7 +1,7 @@
 import { div,img,dropItIn } from "..";
 
 function _createContactForm() {
-    const formName = document.createElement('h3');
+    const formName = document.createElement('h2');
     formName.textContent = 'Message Us';
 
     const form = document.createElement('form');
@@ -35,15 +35,12 @@ function _createContactForm() {
     submitButton.textContent = 'Send';
     
     
-    form.appendChild(nameLabel);
-    form.appendChild(nameInput);
-    form.appendChild(emailLabel);
-    form.appendChild(emailInput);
-    form.appendChild(messageLabel);
-    form.appendChild(messageTextarea);
-    form.appendChild(submitButton);
+    const _name = dropItIn([nameLabel,nameInput], div('name'));
+    const _email = dropItIn([emailLabel,emailInput], div('email'));
+    const _message = dropItIn([messageLabel,messageTextarea], div('message'));
+    dropItIn([_name,_email,_message,submitButton],form);
   
-    return dropItIn([formName,form], div('messageUs'));
+    return dropItIn([formName,form], div('form'));
   }
 
 

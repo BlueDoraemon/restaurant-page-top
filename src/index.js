@@ -39,6 +39,7 @@ export function dropItIn(arr, containerDiv){
 
 function _headerBar(){
     const headerList = document.createElement('ul');
+    headerList.classList.add('header');
 
     const home = document.createElement('li');
     const menu = document.createElement('li');
@@ -65,7 +66,7 @@ function _headerBar(){
 }
 
 function _footer(){
-    const text = div('bot');
+    const text = div('footer');
     text.textContent = 'Created by Lx. Li 2023';
 
     const link  = document.createElement('a');
@@ -88,7 +89,7 @@ function _footer(){
     const footer = document.querySelector('footer');
     const title = document.querySelector('title');
     
-    body.appendChild(dropItIn([img(newImage,'imageBack')],div('background')));
+    // body.appendChild(dropItIn([img(newImage,'imageBack')],div('background')));
     
     
     body.insertBefore(_headerBar(), content);

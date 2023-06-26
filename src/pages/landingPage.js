@@ -11,7 +11,7 @@ export function landingPage(){
     text.textContent = 'The Lanternpost Cafe is a whimsical and cozy establishment inspired by the magical world of Narnia. Step into a charming atmosphere that transports you to a realm of enchantment and adventure. The cafe combines the warmth of a traditional coffeehouse with the ethereal ambiance of Narnia, creating a unique and memorable experience for visitors of all ages.';
 
     const btn = document.createElement('button');
-    btn.textContent = 'gibberish';
+    btn.textContent = 'Order Now';
 
     return [heading, text, btn];  
 }
