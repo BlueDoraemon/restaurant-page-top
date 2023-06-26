@@ -66,7 +66,10 @@ function _headerBar(){
 }
 
 function _footer(){
-    const text = div('footer');
+
+    const _footer = div('footer');
+
+    const text = div('created');
     text.textContent = 'Created by Lx. Li 2023';
 
     const link  = document.createElement('a');
@@ -74,12 +77,23 @@ function _footer(){
     link.appendChild(img(gitHub,'gitHub'));
 
     text.appendChild(link);
+
+    const textTwo = div('photo');
+    textTwo.textContent = 'Photo by ';
+
+    const linkTwo  = document.createElement('a');
+    linkTwo.textContent = 'Rezha Ramadhan';
+    linkTwo.href = 'https://unsplash.com/@rmdhnrexha?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText';
+    textTwo.appendChild(linkTwo);
+
+
+    dropItIn([text,textTwo],_footer);
     
     
     //Photo by <a href="https://unsplash.com/@rmdhnrexha?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Rezha Ramadhan</a> on <a href="https://unsplash.com/photos/sV8M_Lkg60Y?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 
     //Created by Lx. Li  <a href = 'https://github.com/BlueDoraemon/tic-tac-toe'><img src="images/github-mark.svg"></a> 
-    return [text];
+    return [_footer];
 }
 
 //IIFE
